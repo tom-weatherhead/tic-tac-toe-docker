@@ -1,4 +1,6 @@
 /* DashboardComponent's private CSS styles */
+
+/*
 [class*='col-'] {
   float: left;
   padding-right: 20px;
@@ -15,9 +17,11 @@ a {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+*/
 h3 {
   text-align: center; margin-bottom: 0;
 }
+/*
 h4 {
   position: relative;
 }
@@ -27,6 +31,7 @@ h4 {
 .col-1-4 {
   width: 25%;
 }
+*/
 .module {
   padding: 20px;
   text-align: center;
@@ -41,12 +46,14 @@ h4 {
   cursor: pointer;
   color: #607d8b;
 }
+/*
 .grid-pad {
   padding: 10px 0;
 }
 .grid-pad > [class*='col-']:last-of-type {
   padding-right: 20px;
 }
+*/
 @media (max-width: 600px) {
   .module {
     font-size: 10px;
@@ -59,4 +66,8 @@ h4 {
   .module {
     min-width: 60px;
   }
+}
+
+td {
+  border: 1px black solid;
 }

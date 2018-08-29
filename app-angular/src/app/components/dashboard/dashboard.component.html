@@ -1,6 +1,4 @@
 <!--
-<h3>Top Heroes</h3>
-
 <div class="grid grid-pad">
 	<a *ngFor="let hero of heroes" class="col-1-4" routerLink="/detail/{{hero.id}}">
 		<div class="module hero">
@@ -8,36 +6,52 @@
 		</div>
 	</a>
 </div>
-
-<app-hero-search></app-hero-search>
-
-<br />
 -->
 
-<!-- <h3>Top Universities</h3> -->
-<h3>Dashboard!</h3>
+<h3>Tic-Tac-Toe!</h3>
 
+<table style="margin-left: auto; margin-right: auto;">
+	<tr>
+		<td>
+			<img [src]="getImgSrc(0)" (click)="onClickSquare(0)" />
+		</td>
+		<td>
+			<img [src]="getImgSrc(1)" (click)="onClickSquare(1)" />
+		</td>
+		<td>
+			<img [src]="getImgSrc(2)" (click)="onClickSquare(2)" />
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<img [src]="getImgSrc(3)" (click)="onClickSquare(3)" />
+		</td>
+		<td>
+			<img [src]="getImgSrc(4)" (click)="onClickSquare(4)" />
+		</td>
+		<td>
+			<img [src]="getImgSrc(5)" (click)="onClickSquare(5)" />
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<img [src]="getImgSrc(6)" (click)="onClickSquare(6)" />
+		</td>
+		<td>
+			<img [src]="getImgSrc(7)" (click)="onClickSquare(7)" />
+		</td>
+		<td>
+			<img [src]="getImgSrc(8)" (click)="onClickSquare(8)" />
+		</td>
+	</tr>
+</table>
+
+<!--
 <div class="module university" (click)="getTest()">
 	<h4>Test</h4>
 </div>
-
-<!-- Karma error:
-Error: Template parse errors:
-Can't bind to 'routerLink' since it isn't a known property of 'a'.
 -->
-<!-- <a *ngFor="let university of universities" [routerLink]="['/university', university.id]" class="col-1-4"> -->
 
-<!-- <a *ngFor="let university of universities" [routerLink]="['/university', university.id]" class="col-1-4"> -->
-<!-- <div class="grid grid-pad">
-	<a *ngFor="let university of universities" class="col-1-4">
-		<div class="module university" [routerLink]="['/university', university.id]">
-			<h4>{{university.name}}</h4>
-		</div>
-	</a>
+<div class="module" (click)="onClickNewGame()">
+	<h4>New Game</h4>
 </div>
-
-<br /> -->
-
-<!-- Karma errors: "No provider for Router" (NullInjectionError) or cannot determine paraneters for Router.
-<university-search></university-search>
--->

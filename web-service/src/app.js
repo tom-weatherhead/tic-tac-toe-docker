@@ -15,7 +15,7 @@ app.use(cors());
 const router = express.Router();				// eslint-disable-line new-cap
 
 router.get('/:board([EXO]{9})/:maxPly([0-9]{1})', function (req, res) {
-	console.log('BEGIN router.get(board, maxPly);');
+	//console.log('BEGIN router.get(board, maxPly);');
 	// Global replace in string: See https://stackoverflow.com/questions/38466499/how-to-replace-all-to-in-nodejs
 	const boardString = req.params.board.replace(/E/g, ' ');		// Replaces all 'E' with ' '.
 	const maxPly = parseInt(req.params.maxPly, 10);
