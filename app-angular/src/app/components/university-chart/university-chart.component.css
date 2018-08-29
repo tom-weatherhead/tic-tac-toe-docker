@@ -1,0 +1,268 @@
+label {
+  display: inline-block;
+  width: 3em;
+  margin: .5em 0;
+  color: #607D8B;
+  font-weight: bold;
+}
+input {
+  height: 2em;
+  font-size: 1em;
+  padding-left: .4em;
+}
+button {
+  margin-top: 20px;
+  font-family: Arial;
+  background-color: #eee;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer; cursor: hand;
+}
+button:hover {
+  background-color: #cfd8dc;
+}
+button:disabled {
+  background-color: #eee;
+  color: #ccc; 
+  cursor: auto;
+}
+
+/* From https://stackoverflow.com/questions/791231/css-sidebar-height-100 : */
+
+/*
+
+The question:
+
+I've been banging my head against the wall for hours trying to figure out this issue and think it must be something small I'm missing. I've searched online, but nothing I have found seems to work. The HTML is:
+
+<body>
+  <div id="header">
+    <div id="bannerleft">
+    </div>
+
+    <div id="bannerright">
+      <div id="WebLinks">
+        <span>Web Links:</span>
+        <ul>
+          <li><a href="#"><img src="../../Content/images/MySpace_32x32.png" alt="MySpace"/></a></li>
+          <li><a href="#"><img src="../../Content/images/FaceBook_32x32.png" alt="Facebook"/></a></li>
+          <li><a href="#"><img src="../../Content/images/Youtube_32x32.png" alt="YouTube"/></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div id="Sidebar">
+    <div id="SidebarBottom">
+    </div>
+  </div>
+  <div id="NavigationContainer">
+    <ul id="Navigation">
+      <li><a href="#">Nav</a></li>
+      <li><a href="#">Nav</a></li>
+      <li><a href="#">Nav</a></li>
+      <li><a href="#">Nav</a></li>
+      <li><a href="#">Nav</a></li>
+      <li><a href="#">Nav</a></li>
+    </ul>
+  </div>
+  <div id="Main">
+    <!-- content -->
+  </div>
+</body>
+
+My full CSS is:
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  font-family: Calibri, Sans-Serif;
+  height: 100%;
+}
+
+#header {
+  width: 100%;
+  z-index: 1;
+  height: 340px;
+  background-image: url("../../Content/images/bannercenter.gif");
+  background-repeat: repeat-x;
+}
+
+#header #bannerleft {
+  float: left;
+  background-image: url("../../Content/images/bannerleft.gif");
+  background-repeat: no-repeat;
+  height: 340px;
+  width: 439px;
+  z-index: 2;
+}
+
+#bannerright {
+  float: right;
+  background-image: url("../../Content/images/bannerright.gif");
+  background-repeat: no-repeat;
+  width: 382px;
+  height: 340px;
+  background-color: White;
+  z-index: 2;
+}
+
+#Sidebar {
+  width: 180px;
+  background: url("../../Content/images/Sidebar.png") repeat-y;
+  z-index: 2;
+  height: 100%;
+  position: absolute;
+}
+
+#SidebarBottom {
+  margin-left: 33px;
+  height: 100%;
+  background: url("../../Content/images/SidebarImage.png") no-repeat bottom;
+}
+
+#NavigationContainer {
+  position: absolute;
+  top: 350px;
+  width: 100%;
+  background-color: #bbc4c3;
+  height: 29px;
+  z-index: 1;
+  left: 0px;
+}
+
+#Navigation {
+  margin-left: 190px;
+  font-family: Calibri, Sans-Serif;
+}
+
+#Navigation li {
+  float: left;
+  list-style: none;
+  padding-right: 3%;
+  padding-top: 6px;
+  font-size: 100%;
+}
+
+#Navigation a:link, a:active, a:visited {
+  color: #012235;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+#Navigation a:hover {
+  color: White;
+}
+
+#WebLinks {
+  float: right;
+  color: #00324b;
+  margin-top: 50px;
+  width: 375px;
+}
+
+#WebLinks span {
+  float: left;
+  margin-right: 7px;
+  margin-left: 21px;
+  font-size: 10pt;
+  margin-top: 8px;
+  font-family: Helvetica;
+}
+
+#WebLinks ul li {
+  float: left;
+  padding-right: 7px;
+  list-style: none;
+}
+
+#WebLinks ul li a {
+  text-decoration: none;
+  font-size: 8pt;
+  color: #00324b;
+  font-weight: normal;
+}
+
+#WebLinks ul li a img {
+  border-style: none;
+}
+
+#WebLinks ul li a:hover {
+  color: #bcc5c4;
+}
+
+I'd like the sidebar to stretch in height with the content of my page and leave the sidebar bottom image always at the bottom of the sidebar.
+ */
+
+/* Answer number 1: */
+
+.container { 
+  overflow: hidden; 
+} 
+
+#sidebar {
+  float: left;  /* ThAW : Will this put the sidebar on the left side of the page? */
+  margin-bottom: -5000px; /* any large number will do */
+  padding-bottom: 5000px; 
+} 
+
+/*
+Another answer on the same StackOverflow page:
+
+Until CSS's flexbox becomes more mainstream, you can always just absolutely position the sidebar, sticking it zero pixels away from the top and bottom, then set a margin on your main container to compensate.
+
+JSFiddle
+
+http://jsfiddle.net/QDCGv/
+
+HTML
+
+<section class="sidebar">I'm a sidebar.</section>
+
+<section class="main">I'm the main section.</section>
+
+CSS
+
+section.sidebar {
+  width: 250px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background-color: green;
+}
+
+section.main { margin-left: 250px; }
+
+Note: This is an über simple way to do this but you'll find bottom does not mean "bottom of page," but "bottom of window." The sidebar will probably abrubtly end if your main content scrolls down.
+ */
+
+/*
+Answer number 3:
+
+I would use css tables to achieve a 100% sidebar height.
+
+The basic idea is to wrap the sidebar and main divs in a container.
+
+Give the container a display:table
+
+And give the 2 child divs (sidebar and main) a display: table-cell
+
+Like so..
+
+#container {
+display: table;
+}
+#main {
+display: table-cell;
+vertical-align: top;
+}
+#sidebar {
+display: table-cell;
+vertical-align: top;
+} 
+
+Take a look at this LIVE DEMO ( http://jsfiddle.net/danield770/QXZYe/1/ ) where I have modified your initial markup using the above technique (I have used background colors for the different divs so that you can see which ones are which)
+ */

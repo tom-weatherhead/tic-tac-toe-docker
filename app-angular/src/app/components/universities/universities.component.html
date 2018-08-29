@@ -1,0 +1,31 @@
+<h2>Universities</h2>
+
+<!--
+<ul class="universities">
+	<li *ngFor="let university of universities" (click)="onSelect(university)" [class.selected]="university === selectedUniversity">
+		<span class="badge">{{university.id}}</span>
+		<span>{{university.shortName}}</span>
+	</li>
+</ul>
+-->
+
+<div>
+	<label>University Full Name:
+		<input #universityFullName />
+	</label>
+	<label>University Short Name:
+		<input #universityShortName />
+	</label>
+	<!-- (click) passes input value to add() and then clears the input -->
+	<button (click)="add(universityFullName.value, universityShortName.value); universityFullName.value=''; universityShortName.value=''">Add</button>
+</div>
+
+
+<ul class="universities">
+	<li *ngFor="let university of universities">
+		<a routerLink="/university/{{university.id}}">
+			<span class="badge">{{university.id}}</span> {{university.shortName}}
+		</a>
+		<button class="delete" title="delete university" (click)="delete(university)">x</button>
+	</li>
+</ul>

@@ -1,0 +1,59 @@
+Outline for the presentation:
+	- MEAN + Bootstrap
+		- MongoDB :
+			- NoSQL
+			- Big Data: Scaleable
+			- JSON is the native data representation
+			- Collections, not tables
+			! Open Source!
+		- Express.js : Web server framework for Node.js
+		- Angular.js : 
+		- Node.js : JavaScript application framework
+			- Node.js apps are portable
+	- Authentication and authorization
+	- Hideable sidebar
+	- Services
+	- .less -> .css
+	- Lint
+	- NSP: Node.js security scan
+
+	- Grunt watch ?
+	- Responsive Web design?
+
+Questions for them:
+	1) How would you describe the ideal candidate for this position?
+		- Full-stack
+		- Sense of ownership
+		- Good work ethic; sense of responsibility; enjoy the work
+		- Strong tech capabilities
+		- Ability to learn; e.g. React.js (from Facebook)
+		- Collaborative attitude
+		- Professional
+		- Appreciate multi-dimensional personalities
+		- Delight the user!
+		- Meet the requirements
+		- Deliver on time
+	2) What is the greatest challenge that the (person who fills this position) will face within the first 6 months?
+		- Delivering things at a pace -> New concept for VT
+		- (Deliver beautiful things on time)
+	3) What will be the technical aspects of this position in the future?
+		- The types of apps, frameworks, tools, visualizations, etc. that this position will involve in the future?
+		- The way of delivernig insights thru this Web app -> Has not been done before at VT
+		- Deliver actionable bus intel
+		- Going to a cloud environment (for the data part of the system)
+			- Scaleability, performance, security
+		- Functinality exposed at first to faculty and staff; later, available to students -> Mobile clients
+	4) Who will my users be?
+		- I.e. Who will be the users of the software that will be created by the person who fills this position?
+
+Their questions for me:
+	- How would you describe yourself in one word?
+	- What do you know about Virginia Tech?
+	- How did you begin writing software? (-> February 1983)
+
+
+DESCRIPTION:\n\n\n\nJOIN WEBEX MEETING\n
+
+https://virginiatech.webex.com/virginiatech/j.php?MTID=m8f9dcff65728e252a5d0a05cc3ad317b
+
+\nMeeting number (access code): 648 621 673\n\n\n\nJOIN BY PHONE\n+1-855-749-4750 US TOLL FREE \n+1-415-655-0001 US TOLL\n\nGlobal call-in numbers:\

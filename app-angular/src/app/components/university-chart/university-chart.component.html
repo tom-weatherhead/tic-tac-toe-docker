@@ -1,0 +1,75 @@
+<ng-sidebar-container style="height: 100vh;">
+
+  <!-- A sidebar -->
+  <!-- <ng-sidebar [(opened)]="_opened" position="left"> -->
+  <!--
+  <ng-sidebar [(opened)]="_opened" position="right">
+    <ul>
+      <li (click)="goToChart(0)">Chart 0</li>
+      <li (click)="goToChart(1)">Chart 1</li>
+      <li (click)="goToChart(2)">Chart 2</li>
+    </ul>
+  </ng-sidebar>
+  -->
+
+  <!-- Page content -->
+  <!-- <div ng-sidebar-content style="margin-left=100px;"> -->
+  <div ng-sidebar-content>
+    <!-- <button (click)="_toggleSidebar()">Toggle sidebar</button> -->
+
+    <button (click)="goToChart(1)">Chart 1</button>
+    <button (click)="goToChart(2)">Chart 2</button>
+    <button (click)="goToChart(3)">Chart 3</button>
+    <button (click)="goToChart(4)">Chart 4</button>
+    <button (click)="goToChart(5)">Chart 5</button>
+    <button (click)="goToChart(6)">Chart 6</button>
+    <button (click)="goToChart(7)">Chart 7</button>
+    <button (click)="goToChart(8)">Chart 8</button>
+    <button (click)="goToChart(9)">Chart 9</button>
+    <button (click)="goToChart(10)">Chart 10</button>
+    <button (click)="goToChart(11)">Chart 11</button>
+
+	<!-- TODO: Force the bar chart labels to change when navigating from chart 1-5 to chart 11, or vice versa -->
+
+    <div *ngIf="showChart">
+      <div *ngIf="chartType=='bar'">
+        <div style="display: block">
+          <canvas baseChart
+                  [datasets]="chartData"
+                  [labels]="chartLabels"
+                  [options]="chartOptions"
+                  [legend]="chartLegend"
+                  [chartType]="chartType"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"></canvas>
+        </div>
+        <!-- <button (click)="randomize()">Update</button> -->
+      </div>
+
+      <div *ngIf="chartType=='pie'">
+        <div style="display: block">
+          <canvas baseChart
+                  [data]="chartData"
+                  [labels]="chartLabels"
+                  [chartType]="chartType"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"></canvas>
+        </div>
+      </div>
+
+      <div *ngIf="chartType=='barAllU'">
+        <div style="display: block">
+          <canvas baseChart
+                  [datasets]="chartData"
+                  [labels]="chartLabels"
+                  [options]="chartOptions"
+                  [legend]="chartLegend"
+                  chartType="bar"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"></canvas>
+        </div>
+        <!-- <button (click)="randomize()">Update</button> -->
+      </div>
+	</div>
+  </div>
+</ng-sidebar-container>

@@ -1,0 +1,13 @@
+version: '2' # Specify the docker-compose version number
+
+# Define the services/containers to be run
+services:
+  tic-tac-toe-web-client-angular: # The name of the first service
+    build: app-angular # Specify the directory of the Dockerfile
+    ports:
+      - "4200:4200" # Specify the port to be forwarded
+
+  tic-tac-toe-web-service: # The name of the second service
+    build: web-service # Specify the directory of the Dockerfile
+    ports:
+      - "3000:3000" # Specify the port to be forwarded

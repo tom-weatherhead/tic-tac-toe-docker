@@ -1,0 +1,57 @@
+virginia-tech-20170810 - Installation Instructions for Windows
+
+- In an elevated-privilege (Administrator) command prompt window:
+	- Install choco
+	- Install nodist
+	- ...
+
+// To set up the MongoDB database, launch mongod.exe (the database "daemon") and mongo.exe (the MongoDB shell), and type the following into the shell:
+
+// use virginia-tech-20170810
+// newstuff = [{ "username" : "testuser1", "email" : "testuser1@testdomain.com" }, { "username" : "testuser2", "email" : "testuser2@testdomain.com" }, { "username" : "testuser3", "email" : "testuser3@testdomain.com" }]
+// db.usercollection.insert(newstuff);
+// db.usercollection.find().pretty()
+// db.stats()
+// show dbs
+// show collections
+
+- In the MongoDB Shell:
+  - use virginia-tech-20170810
+  - show collections
+  - db.users.find().pretty()
+  - db.bills.insert({user_name: "tomw", receipt_date: "2017-04-08", vendor_name: "Cats R Us", description: "Feline expense", account_name: "Cats", quantity: "1", class_name: "Upper Class Cat", amount: "123.45", state: "0", bill_type: "0"})
+WriteResult({ "nInserted" : 1 })
+  - db.bills.find().pretty()
+
+- Set the environment variable MEAN_QB_ENV to NoQB to prevent this app from attempting to communicate with QuickBooks.
+
+
+
+						},
+						'SAT Summary': function() {
+							// $scope.labels = selectDataColumn('Institution');
+							// $scope.labels = $scope.labels.map(function (lbl) {
+								// return institutionNameShorteningMap[lbl] || lbl;
+							// });
+							$scope.labels = ['Critical Reading', 'Math', 'Writing'];
+							$scope.series = ['25th Percentile', '75th Percentile', 'Median'];
+							// $scope.data = selectMultipleDataColumnsPerInstitution([
+							// ]);
+							$scope.data = selectDataColumns2Level(institutions[0], [
+								[
+									'25th percentile of SAT scores at the institution (critical reading)',
+									'25th percentile of SAT scores at the institution (math)',
+									'25th percentile of SAT scores at the institution (writing)'
+								],
+									'75th percentile of SAT scores at the institution (critical reading)',
+									'75th percentile of SAT scores at the institution (math)',
+									'75th percentile of SAT scores at the institution (writing)'
+								[
+								],
+								[
+									'Midpoint of SAT scores at the institution (critical reading)',
+									'Midpoint of SAT scores at the institution (math)',
+									'Midpoint of SAT scores at the institution (writing)'
+								]
+							]);
+							$scope.chartTypeClass = 'chart-bar';

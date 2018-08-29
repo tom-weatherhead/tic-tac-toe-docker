@@ -1,0 +1,111 @@
+virginia-tech-20170810 : To Do List
+
+- Upgrade all other npm packages to the latest versions, if possible
+- Lint the .js code
+- Run NSP (a Node.js security scan) via "grunt nsp"
+- Responsive Web design: Use Bootstrap class prefixes "col-sm-" and "col-md-" in additon to the currently-used "col-lg-" to format the view for different screen sizes
+- TODO: Angular: Use ng-repeat (or whatever it is called (*ngFor)) to create tags for each sidebar group via iteration?
+	<li><a href="#"><i class="fa fa-fw fa-folder"></i> X With Natl Avgs</a></li>
+	<li>
+		<ul>
+			<!-- <li ng-repeat="x in columnsInNationalAverageGroupWithLabels"><a ui-sref="home({ analysis: '{{x.analysis}}' })"><i class="fa fa-fw fa-file-o"></i> {{x.label}}</a></li> -->
+			<li ng-repeat="x in columnsInNationalAverageGroupWithLabels"><a ui-sref="home({ analysis: x.analysis })"><i class="fa fa-fw fa-file-o"></i> {{ x.label }}</a></li>
+		</ul>
+	</li>
+
+**** Other Notes ****
+
+- Virginia Tech Web App for the Presentation on Thursday:
+	* TODO: Login with username and password both equal to "vtuser"
+	* TODO: Import the .csv data into MongoDB
+		- Create an "Upload and ingest .csv" page? -> Currently using the script ingest.js
+	* TODO: Integrate Chart.js
+	* TODO: Get one use case working: Data in MongoDB -> Data in a controller -> Analysis: Slice and dice the numbers -> Generate a pretty chart -> Amaze the audience -> Profit!
+	~ TODO: Populate the sidebar (see app/index.html) with all of the analyses specified in the Word doc
+		* Use a URL parameter to choose the type of analysis: index.html?analysis=studentrace
+	- TODO: Write the outline for your presentation!
+		- MEAN + Bootstrap
+		- Authentication and authorization
+		- Hideable sidebar
+		- Services
+		- .less -> .css
+		- Grunt watch ?
+	* TODO: Use services so you can show them off (present them). Modularity and reusability are good.
+	* TODO: Generate CSS from LESS via Grunt rather than Gulp
+	* TODO: Ensure that the (moving) sidebar doesn't mess up any aspect of the views
+	- TODO: Make the Web app Responsive! Bootstrap lg/md/sm ? Test with different browser window widths.
+	- TODO: Ensure that the app passes Lint (so you can demo the Linting process during the presentation).
+	- TODO: Research the appearance of presentations made by members of Abhay's department at VT; make my presentation consistent.
+	* TODO: Change Web app colour to match VT's colours: See their Website
+	* TODO: From the spec: "The dashboard application should provide select feature to help visualize the information by institution."
+		? What should this "select feature" do from the user's point of view?
+			-> ! The tooltip feature already works automagically (!!!), thanks to angular-chart.js
+	* TODO: From the spec: "The dataset has national average data for some of the data fields. Please use that data to provide comparative measures in visualization (eg: % Graduation rate: National average v/s Institution)."
+		- ? Factor out the "National Average..." columns into a separate collection?
+		// 'National Average Annual Cost',
+			-> Relates to the column(s) : 'Average Annual Cost'
+		// 'National Average Students Paying Down Their Debt (%)',
+			-> Relates to the column(s) : 'Students Paying Down Their Debt (%)'
+		// 'National Average - Salary After Attending',
+			-> Relates to the column(s) : 'Salary After Attending ($)'
+		// 'National Average - Graduation rate (%)',
+			-> Relates to the column(s) : ? 'Completion rate for first-time and full-time students at four-year institutions'
+		// 'National Average - First-time, full-time student retention rate at four-year institutions (%)'
+			-> Relates to the column(s) : 'First-time, full-time student retention rate at four-year institutions (%)'
+	- TODO: Determine chart type (bar vs. line vs. pie) for each column or related group of columns:
+		Bar: '25th percentile of SAT scores at the institution (critical reading)',
+		Bar: '75th percentile of SAT scores at the institution (critical reading)',
+		Bar: '25th percentile of SAT scores at the institution (math)',
+		Bar: '75th percentile of SAT scores at the institution (math)',
+		Bar: '25th percentile of SAT scores at the institution (writing)',
+		Bar: '75th percentile of SAT scores at the institution (writing)',
+		Bar: 'Midpoint of SAT scores at the institution (critical reading)',
+		Bar: 'Midpoint of SAT scores at the institution (math)',
+		Bar: 'Midpoint of SAT scores at the institution (writing)',
+		Bar: '25th percentile of the ACT cumulative score',
+		Bar: '75th percentile of the ACT cumulative score',
+		Pie: Percentage of degrees awarded in each category of study, including "Other"
+			- Make the pie chart big enough, since it will have a lot of slices
+			Bar: 'Percentage of degrees awarded in Agriculture, Agriculture Operations, And Related Sciences',
+			Bar: 'Percentage of degrees awarded in Natural Resources And Conservation',
+			Bar: 'Percentage of degrees awarded in Architecture And Related Services',
+			Bar: 'Percentage of degrees awarded in Communication, Journalism, And Related Programs',
+			Bar: 'Percentage of degrees awarded in Computer And Information Sciences And Support Services',
+			Bar: 'Percentage of degrees awarded in Engineering',
+			Bar: 'Percentage of degrees awarded in Foreign Languages, Literatures, And Linguistics',
+			Bar: 'Percentage of degrees awarded in Family And Consumer Sciences/Human Sciences',
+			Bar: 'Percentage of degrees awarded in Psychology',
+			Bar: 'Percentage of degrees awarded in Public Administration And Social Service Professions',
+			Bar: 'Percentage of degrees awarded in Social Sciences',
+			Bar: 'Percentage of degrees awarded in Visual And Performing Arts',
+			Bar: 'Percentage of degrees awarded in Business, Management, Marketing, And Related Support Services',
+		Bar: 'Undergraduate Students',
+		Pie: Student race:
+			Bar: '% White',
+			Bar: '% Black',
+			Bar: '% Hispanic',
+			Bar: '% Asian',
+			Bar: '% American Indian/Alaska Native',
+			Bar: '% Native Hawaiian/Pacific Islander',
+			Bar: '% Two or More races',
+			Exclude this one??? Bar: '% Non Resident Alien',
+			Bar: '% Unknown',
+			? Bar: '% Other'
+	* TODO: Fix the position of the SAT sub-folders in the sidebar; at the moment, they are sibling folders (not sub-folders) of the SAT folder.
+	* TODO: ! Correctly handle NULL values (e.g. in the ACT scores)
+		* What happens if we call e.g. parseFloat/parseInt('NULL') or parseFloat/parseInt(null) ?
+	* TODO: Prevent the sidebar (when it is visible) from disabling the click and hover events on the rest of the page (especially the chart)
+	- TODO: ? Make the sidebar always visible?
+	- TODO: ? Make the chart bigger?
+	* TODO: For special cases, handle all institutions, not just institutions[0]. -> Show (vs. hide (ng-if)) a dropdown of all institution names; the selected name will determine n in institutions[n].
+	* TODO: In percentage charts, round amounts to 2 (?) decimal points?
+	* TODO: SAT: 5 groups of 3 bars (25 pct, 75 pct, median)
+	* TODO: Label the Y axes of the bar charts
+	- Note: This is a *single page* dashboard-style Web app; no need for multiple pages (or multiple controllers?)
+	- Angular and Chart.js :
+		- https://www.npmjs.com/package/angular-chart.js/
+		- https://github.com/jtblin/angular-chart.js
+
+- npm packages to add:
+
+- TODO: 2018-02-27 : Can we remove our dependency on the npm package ts-node ?

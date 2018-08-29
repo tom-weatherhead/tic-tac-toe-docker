@@ -1,0 +1,9 @@
+<div id="university-search-component">
+	<h4>University Search</h4>
+	<input #universitySearchBox id="university-search-box" (keyup)="search(universitySearchBox.value)" />
+	<div>
+		<div *ngFor="let university of universities | async" (click)="gotoUniversityDetail(university)" class="university-search-result" >
+			{{ university.name }}
+		</div>
+	</div>
+</div>

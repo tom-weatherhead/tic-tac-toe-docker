@@ -1,0 +1,24 @@
+<!-- Container for sidebar(s) + page content -->
+<ng-sidebar-container style="height: 100vh;">
+
+	<!-- A sidebar -->
+	<!-- <ng-sidebar [(opened)]="_opened" position="left"> -->
+	<ng-sidebar [(opened)]="_opened" position="right">
+		<ul>
+			<li>Menu Item 1</li>
+			<li>Menu Item 2</li>
+			<li>Menu Item 3</li>
+		</ul>
+	</ng-sidebar>
+
+	<!-- Page content -->
+	<!-- <div ng-sidebar-content style="margin-left=100px;"> -->
+	<div ng-sidebar-content>
+		<button (click)="_toggleSidebar()">Toggle sidebar</button>
+
+		<!-- <hello name="{{ name }}"></hello> -->
+		<p>
+			Start editing to see some magic happen :)
+		</p>
+	</div>
+</ng-sidebar-container>
